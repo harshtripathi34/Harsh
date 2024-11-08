@@ -10,8 +10,11 @@ import { customerFeedbackData } from '../assets/customerFeedbackData'
 import FeedbackCard from '../components/FeedbackCard'
 import pizzaImage from '../assets/images/pizzaPng.png'
 import { FoodContext } from '../contexts/FoodContext'
+import FoodsWeOfferBar from '../components/FoodsWeOfferBar'
+import { useNavigate } from 'react-router-dom'
 const Homepage = () => {
     const {products} =useContext(FoodContext)
+    const navigate=useNavigate();
     useEffect(()=>{
         window.scrollTo(0,0)
       },[])
@@ -45,7 +48,7 @@ const Homepage = () => {
             }
             <section className='w-full flex flex-col gap-5 mt-28'>
                 <h1 className='text-3xl  text-start '>Foods we offer</h1>
-                <FoodCategoryBar />
+               <FoodsWeOfferBar/>
 
             </section>
 
@@ -80,7 +83,7 @@ const Homepage = () => {
                     <h1 className='text-2xl font-semibold text-[var(--primary-color)]'>Quality</h1>
                     <h1 className='text-4xl font-semibold text-black my-3'>Exploring the reach flavor and diverse of the world</h1>
                     <p className='text-base'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet ex scelerisque orci pharetra placerat nec id ante. Quisque at lacinia odio. Sed eu risus porttitor nisi vulputate consequat.</p>
-                    <button className='px-4 py-2 rounded-full text-white bg-[var(--primary-color)] mt-6'>Explore</button>
+                    <button onClick={()=>navigate('/menu')} className='px-4 py-2 rounded-full text-white bg-[var(--primary-color)] mt-6'>Explore</button>
 
                 </div>
 

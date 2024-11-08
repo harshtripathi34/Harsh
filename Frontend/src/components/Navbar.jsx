@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className='w-full flex justify-between py-2 items-center sticky top-0 bg-white z-50'>
 {/* //logo */}
-<h1 className='text-4xl font-bold text-[var(--primary-color)]'>Harsh</h1>
+<NavLink to='/' className='text-4xl font-bold text-[var(--primary-color)]'>The Nook Cafe</NavLink>
 {/* //options */}
 <div className='flex gap-4'>
 

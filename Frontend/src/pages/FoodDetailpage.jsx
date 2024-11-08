@@ -5,17 +5,22 @@ import StarRating from '../components/StarRating'
 import ReviewCard from '../components/ReviewCard'
 import { getAverageRating } from '../utils/getAverageRating'
 import { FoodContext } from '../contexts/FoodContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faX } from '@fortawesome/free-solid-svg-icons'
 
 const FoodDetailpage = () => {
 
   const { food } = useLocation()?.state || {}
-  const { addProductToUserCart } = useContext(FoodContext);
+  const { addProductToUserCart,addProductRating } = useContext(FoodContext);
   const [quantity, setQuantity] = useState(1);
+  const [rating,setRating]=useState(0);
+  const [comment,setComment]=useState('');
+  const [ratingPopup, setRatingPopup] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div className='min-h-[100vh] text-start'>
+    <div className='min-h-[100vh] text-start mb-[50vh]'>
       <div className='w-full sm:flex mt-5 mb-14 gap-5'>
         <div className='sm:w-1/2 w-full h-full flex items-center justify-center '>
 
@@ -57,6 +62,59 @@ const FoodDetailpage = () => {
           })
         }
       </div>
+      <h1 className='text-lg font-bold   mt-8 '>Revie this product:</h1>
+      <p>share your thoughts about this product with cutomers</p>
+      <button onClick={()=>setRatingPopup(true)} className='px-4 py-2 mt-2 bg-[var(--primary-color)] rounded-full'>Rate ths item</button>
+
+
+{/**rating  */}
+<div
+        className={`fixed top-0 left-0 h-full  w-full flex flex-col justify-center items-center bg-[var(--secondary-color)] z-50 ${
+          ratingPopup ? "visible" : "hidden"
+        }`}
+      >
+      <div className={`px-5 py-6 bg-white shadow-xl relative w-[80vw] sm:w-[400px] sm:min-h-[300px] border text-center`}>
+          <p className="text-2xl">Rate the Product:</p>
+          {[...Array(5)].map((_, index) => (
+            <span
+              className="text-[30px]"
+              key={index}
+              onClick={() => setRating(index + 1)}
+              style={{
+                color: index < rating ? "#F97316" : "gray",
+                cursor: "pointer",
+              }}
+            >
+              ★
+            </span>
+          ))}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              addProductRating(food?._id, comment, rating);
+            }}
+            className="w-full mt-5"
+          >
+            <label>Add Review</label>
+            <textarea
+              onChange={(e) => setComment(e.target.value)}
+              required
+              className="w-full border-2 border-[var(--primary-color)] outline-none px-2 py-1 rounded-md"
+            ></textarea>
+            <button
+              type="submit"
+              className="text-lg border-2 bg-[var(--primary-color)] hover:bg-[var(--btn-hover-color)] text-white rounded-full px-4 py-1 mt-5"
+            >
+              Submit
+            </button>
+          </form>
+          <FontAwesomeIcon
+            onClick={() => setRatingPopup(false)}
+            className="absolute right-5 top-5 cursor-pointer text-xl"
+            icon={faX}
+          />
+        </div>
+        </div>
     </div>
   )
 }
