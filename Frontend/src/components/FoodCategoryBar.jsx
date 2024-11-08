@@ -18,7 +18,7 @@ const FoodCategoryBar = () => {
             image: foodImage
         },
         {
-            category: 'Burger',
+            category: 'Burgers',
             image: burgerImage
         },
         {

@@ -18,3 +18,11 @@
 *,p{
   font-family:"Poppins", serif;;
 }
+
+.short-para{
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Number of lines to display */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

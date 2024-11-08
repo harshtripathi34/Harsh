@@ -8,6 +8,7 @@ import FoodCard from '../components/FoodCard'
 import { FoodContext } from '../contexts/FoodContext'
 const Menupage = () => {
   const {foodFilteredCategory} =useContext(FoodContext)
+  const {products}=useContext(FoodContext)
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
@@ -50,7 +51,7 @@ const Menupage = () => {
         <h1 className='text-3xl  text-start '>{foodFilteredCategory} </h1>
         <div className='w-full flex  gap-5 flex-wrap'>
           {
-            foodData.map((food) => 
+            products.map((food) => 
             
             {
               if(food.category==foodFilteredCategory){

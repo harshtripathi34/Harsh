@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Hero } from '../components/Hero'
 import FoodCategoryBar from '../components/FoodCategoryBar'
 import OfferedServicesBar from '../components/OfferedServicesBar'
@@ -9,7 +9,9 @@ import FoodCard from '../components/FoodCard'
 import { customerFeedbackData } from '../assets/customerFeedbackData'
 import FeedbackCard from '../components/FeedbackCard'
 import pizzaImage from '../assets/images/pizzaPng.png'
+import { FoodContext } from '../contexts/FoodContext'
 const Homepage = () => {
+    const {products} =useContext(FoodContext)
     useEffect(()=>{
         window.scrollTo(0,0)
       },[])
@@ -55,9 +57,9 @@ const Homepage = () => {
 
             <section className='w-full flex flex-col gap-5 mt-28'>
                 <h1 className='text-3xl  text-start '>Our best seller </h1>
-                <div className='w-full flex justify-between gap-4 flex-wrap'>
+                <div className='w-full flex  gap-5 flex-wrap'>
                     {
-                        foodData.map((food) => <FoodCard food={food} />)
+                        products.map((food) => <FoodCard food={food} />)
                     }
 
 

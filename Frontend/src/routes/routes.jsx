@@ -6,6 +6,10 @@ import Menupage from "../pages/Menupage";
 import Cartpage from "../pages/Cartpage";
 import FoodDetailpage from "../pages/FoodDetailpage";
 import { Orderspage } from "../pages/Orderspage";
+import { Loginpage } from "../pages/Loginpage";
+import { Registerpage } from "../pages/Registerpage";
+import Buypage from "../pages/Buypage";
+
 
 export const routes=createBrowserRouter([
     {
@@ -28,6 +32,15 @@ export const routes=createBrowserRouter([
             },{
                 path:'/orders',
                 element:<Orderspage/>
+            },{
+                path:'/login',
+                element:<Loginpage/>
+            },{
+                path:'/register',
+                element:<Registerpage/>
+            },{
+                path:'/buy',
+                element:<Buypage/>
             }
         ]
     }
