@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  padding-right: 2rem;
+  padding-left: 2rem;
+  text-align: center;
+
+  --primary-color: #FC8A06;
+
+  --secondary-color: #fc890641;
+  --light-bg-color: rgba(120, 150, 176, 0.1);
+  --logo-color: #266296;
+  --btn-hover-color: #266296b0;
+  --hero-section-bg-color:rgba(38, 98, 150, 0.2);
+}
+
+*,p{
+  font-family:"Poppins", serif;;
+}
