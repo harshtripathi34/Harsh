@@ -1,0 +1,20 @@
+.nav-otions{
+
+}
+.menu-sidebar-icon{
+visibility: hidden;
+}
+.option{
+    
+}
+.option:hover{
+    color: var(--primary-color);
+}
+@media (max-width:870px) {
+    .nav-otions{
+        display:none;
+    }
+    .menu-sidebar-icon{
+        visibility: visible;
+    }
+}

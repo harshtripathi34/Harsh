@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import {NavLink} from 'react-router-dom'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAdd} from '@fortawesome/free-solid-svg-icons'
+
 import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
 const SideBar = () => {
-  const {logedInUser} =useContext(FirebaseAuthContext)
+  const {logedInUser,logOut} =useContext(FirebaseAuthContext)
   return (
-    <div className=" py-6 flex flex-col w-[300px] gap-5 bg-[var(--secondary-color)]   top-0 left-0 min-h-[100vh]  ">
+  <>
+    <div className=" py-6 flex flex-col w-[300px] gap-5 bg-[var(--secondary-color)]   top-0 left-0 min-h-[100vh]  sidebar">
 <div className="w-full mb-10 px-5">
 <h1 className="text-3xl font-bold text-[var(--primary-color)]">The Nook Cafe</h1>
 <p>{logedInUser?.email}</p>
-<button className="border-red-600 border-2 rounded-xl hover:bg-red-600 text-black b px-4 mt-4 ">Logout</button>
+<button onClick={logOut} className="border-red-600 border-2 rounded-xl hover:bg-red-600 text-black b px-4 mt-4 ">Logout</button>
 </div>
 
       <NavLink
@@ -21,7 +21,7 @@ const SideBar = () => {
           }`
         }
       >
-       Add food item
+       Add  item
       </NavLink>
 
       <NavLink
@@ -45,6 +45,18 @@ const SideBar = () => {
         Orders
       </NavLink>
     </div>
+    <div className="flex gap-5 w-full sm:hidden px-4">
+<NavLink to={'/'} className={({isActive})=>`px-4 py-1 rounded-full border-2 border-[var(--primary-color)] ${isActive?'bg-[var(--primary-color)]':''}`}>
+  Add items
+</NavLink>
+<NavLink to={'listedProducts'} className={({isActive})=>`px-4 py-1 rounded-full border-2 border-[var(--primary-color)] ${isActive?'bg-[var(--primary-color)]':''}`}>
+  Listed items
+</NavLink>
+<NavLink to={'orders'} className={({isActive})=>`px-4 py-1 rounded-full border-2 border-[var(--primary-color)] ${isActive?'bg-[var(--primary-color)]':''}`}>
+ Orders
+</NavLink>
+    </div>
+  </>
   );
 };
 

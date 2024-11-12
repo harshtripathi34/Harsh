@@ -38,11 +38,12 @@ export const Loginpage = () => {
 
 
 
-<div className="md:w-1/2 w-full h-full flex flex-col justify-center items-center">
+<div className=" w-full h-full flex flex-col justify-center items-center">
     <ToastContainer/>
     
-   <h1 className="heading">Welcom back !</h1>
-    <p className=" sbuheading ">hii thre welcom back , login to your account </p>
+    <h1 className="text-3xl font-semibold mb-7 text-[var(--primary-color)]">The Nook Cafe</h1>
+      <h1 className="text-4xl font-semibold mb-1">Welcom back</h1>
+    <p className=" sbuheading "> Login to your account </p>
     
     <form onSubmit={handleLogin} className="flex flex-col gap-4  md:w-[40vw] w-[500px] max-w-[80vw] my-5">
     <input required onChange={(e)=>setEmail(e.target.value)} className="px-4 py-3 border-2  rounded-md " name="email" type="email" placeholder="Email address"/>
@@ -53,9 +54,7 @@ export const Loginpage = () => {
 
        </div>
 
-       <div className="md:w-1/2 login-visual-part w-full flex items-center justify-center bg-[var(--primary-color)] h-full">
-  <h1 className="text-5xl font-bold text-white">The Nook Cafe</h1>
-</div>
+
   </div>
   );
 };

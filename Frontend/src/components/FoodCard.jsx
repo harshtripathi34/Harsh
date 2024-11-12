@@ -8,6 +8,8 @@ import PlustIcon from '@mui/icons-material/Add'
 import { useNavigate } from 'react-router-dom'
 import { getAverageRating } from '../utils/getAverageRating';
 import { FoodContext } from '../contexts/FoodContext';
+import { FirebaseAuthContext } from '../contexts/FirebaseAuthContext';
+import { toast } from 'react-toastify';
 const FoodCard = ({ food }) => {
 
   const [discountedPrice, setDiscountedPrice] = useState();
@@ -16,6 +18,7 @@ const FoodCard = ({ food }) => {
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
   const { addProductToUserCart } = useContext(FoodContext)
+  const {logedInUser} =useContext(FirebaseAuthContext)
 
 
   useEffect(() => {
@@ -38,18 +41,20 @@ const FoodCard = ({ food }) => {
         <div className='absolute z-20 right-4 bottom-4 flex gap-2'>
 
           <div className={`h-[40px] bg-white rounded-full flex gap-1 py-1 px-1  ${isQuantityBarShow ? 'opacity-[100%]' : 'opacity-0'} transition duration-500 ease-in-out`}>
-            <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square bg-red-300 rounded-full flex items-center justify-center'>
+            <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square bg-green-300 rounded-full flex items-center justify-center'>
               +
             </button>
             <div className='h-full flex items-center justify-center'>
               {quantity}
             </div>
-            <button onClick={() => setQuantity(prev => prev > 1 ? prev - 1 : prev)} className='h-full aspect-square bg-green-300 rounded-full flex items-center justify-center'>
+            <button onClick={() => setQuantity(prev => prev > 1 ? prev - 1 : prev)} className='h-full aspect-square bg-red-300   rounded-full flex items-center justify-center'>
               -
             </button>
 
           </div>
-          <div onClick={() => addProductToUserCart(food, quantity)} className=' bg-white hover:bg-[var(--primary-color)] transition duration-400 ease-in-out h-[40px] aspect-square rounded-full flex items-center justify-center shadow-lg cursor-pointer'>
+          <div onClick={() => {
+            logedInUser?addProductToUserCart(food, quantity):toast.error("User not logined !")
+          }} className=' bg-white hover:bg-[var(--primary-color)] transition duration-400 ease-in-out h-[40px] aspect-square rounded-full flex items-center justify-center shadow-lg cursor-pointer'>
             <PlustIcon />
           </div>
         </div>

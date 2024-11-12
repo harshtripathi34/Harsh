@@ -47,13 +47,13 @@ const CartFoodCard = ({ foodDetail }) => {
         </div>
       </div>
       <div className={`h-[40px] bg-white rounded-full flex gap-1 py-1 px-1 shadow-lg`}>
-        <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square bg-red-300 rounded-full flex items-center justify-center'>
+        <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square bg-green-300  rounded-full flex items-center justify-center'>
           +
         </button>
         <div className='h-full flex items-center justify-center'>
           {quntity}
         </div>
-        <button onClick={() => setQuantity(prev => prev > 1 ? prev - 1 : prev)} className='h-full aspect-square bg-green-300 rounded-full flex items-center justify-center'>
+        <button onClick={() => setQuantity(prev => prev > 1 ? prev - 1 : prev)} className='h-full aspect-square bg-red-300  rounded-full flex items-center justify-center'>
           -
         </button>
 

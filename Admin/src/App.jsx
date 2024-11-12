@@ -24,10 +24,10 @@ navigate('/login')
    <>
     <div className='min-h-[100vh] '>
      
-     {/* <NavBar/> */}
+     <NavBar/>
      
     
-     <div className=' flex h-full w-full'>
+     <div className=' sm:flex h-full w-full'>
 
       <SideBar/>
 

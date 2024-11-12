@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { cartFoods } from '../assets/cartFoods'
 import CartFoodCard from '../components/CartFoodCard'
 import { FoodContext } from '../contexts/FoodContext';
 import { useNavigate } from 'react-router-dom';
@@ -45,7 +44,7 @@ cartProducts?.length > 0 ?
                             <div className=' px-4 py-7 rounded-xl bg-[var(--secondary-color)]'>
                                 <div className='flex justify-between'>
                                     <p>Toatal items:</p>
-                                    <p>{cartFoods?.length}</p>
+                                    <p>{cartProducts?.length}</p>
                                 </div>
                                 <div className='flex justify-between'>
                                     <p>Toatal:</p>

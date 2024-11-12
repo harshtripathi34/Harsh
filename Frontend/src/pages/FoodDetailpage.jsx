@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { foodData } from '../assets/foodData'
+
 import { useLocation } from 'react-router-dom'
 import StarRating from '../components/StarRating'
 import ReviewCard from '../components/ReviewCard'
@@ -7,15 +7,18 @@ import { getAverageRating } from '../utils/getAverageRating'
 import { FoodContext } from '../contexts/FoodContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
+import { FirebaseAuthContext } from '../contexts/FirebaseAuthContext'
+import { toast } from 'react-toastify'
 
 const FoodDetailpage = () => {
 
   const { food } = useLocation()?.state || {}
-  const { addProductToUserCart,addProductRating } = useContext(FoodContext);
+  const { addProductToUserCart, addProductRating } = useContext(FoodContext);
   const [quantity, setQuantity] = useState(1);
-  const [rating,setRating]=useState(0);
-  const [comment,setComment]=useState('');
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
   const [ratingPopup, setRatingPopup] = useState(false);
+  const { logedInUser } = useContext(FirebaseAuthContext)
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -32,14 +35,14 @@ const FoodDetailpage = () => {
           <StarRating rating={getAverageRating(food?.reviews)} />
           <p className='text-lg font-semibold'>${food?.price}</p>
 
-          <div className={`h-[40px] bg-white rounded-full flex gap-1 py-1 px-1   shadow-lg max-w-[100px] justify-center`}>
-            <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square bg-red-300 rounded-full flex items-center justify-center'>
+          <div className={`h-[40px]  bg-white rounded-full flex gap-1 py-1 px-1   shadow-lg max-w-[100px] justify-center`}>
+            <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square rounded-full bg-green-300  flex items-center justify-center'>
               +
             </button>
             <div className='h-full flex items-center justify-center'>
               {quantity}
             </div>
-            <button onClick={() => setQuantity(prev => prev > 1 ? prev - 1 : prev)} className='h-full aspect-square bg-green-300 rounded-full flex items-center justify-center'>
+            <button onClick={() => setQuantity(prev => prev > 1 ? prev - 1 : prev)} className='h-full aspect-square bg-red-300  rounded-full flex items-center justify-center'>
               -
             </button>
 
@@ -47,8 +50,10 @@ const FoodDetailpage = () => {
           <p className='mt-5'>{food?.smallDescription}</p>
 
           <div className='flex gap-5 items-center justify-start mt-7'>
-            <button onClick={()=>addProductToUserCart(food,quantity)} className='h-[40px] w-[150px] bg-[var(--primary-color)] rounded-xl text-black '>Add to cart</button>
-            <button className='h-[40px] w-[150px] border-2 border-[var(--primary-color)] hover:bg-[var(--secondary-color)] rounded-xl transition duration-300 ease-in-out text-black '>Order now</button>
+            <button onClick={() => {
+              logedInUser ? addProductToUserCart(food, quantity) : toast.error("User not logined !")
+            }} className='h-[40px] w-[150px] bg-[var(--primary-color)] rounded-xl text-black '>Add to cart</button>
+            {/* <button onClick={()=>navigate('/buy',{state:{products:[],totalPrice}})} className='h-[40px] w-[150px] border-2 border-[var(--primary-color)] hover:bg-[var(--secondary-color)] rounded-xl transition duration-300 ease-in-out text-black '>Order now</button> */}
           </div>
         </div>
       </div>
@@ -64,16 +69,15 @@ const FoodDetailpage = () => {
       </div>
       <h1 className='text-lg font-bold   mt-8 '>Revie this product:</h1>
       <p>share your thoughts about this product with cutomers</p>
-      <button onClick={()=>setRatingPopup(true)} className='px-4 py-2 mt-2 bg-[var(--primary-color)] rounded-full'>Rate ths item</button>
+      <button onClick={() => setRatingPopup(true)} className='px-4 py-2 mt-2 bg-[var(--primary-color)] rounded-full'>Rate ths item</button>
 
 
-{/**rating  */}
-<div
-        className={`fixed top-0 left-0 h-full  w-full flex flex-col justify-center items-center bg-[var(--secondary-color)] z-50 ${
-          ratingPopup ? "visible" : "hidden"
-        }`}
+      {/**rating  */}
+      <div
+        className={`fixed top-0 left-0 h-full  w-full flex flex-col justify-center items-center bg-[var(--secondary-color)] z-50 ${ratingPopup ? "visible" : "hidden"
+          }`}
       >
-      <div className={`px-5 py-6 bg-white shadow-xl relative w-[80vw] sm:w-[400px] sm:min-h-[300px] border text-center`}>
+        <div className={`px-5 py-6 bg-white shadow-xl relative w-[80vw] sm:w-[400px] sm:min-h-[300px] border text-center`}>
           <p className="text-2xl">Rate the Product:</p>
           {[...Array(5)].map((_, index) => (
             <span
@@ -93,6 +97,8 @@ const FoodDetailpage = () => {
               e.preventDefault();
               addProductRating(food?._id, comment, rating);
             }}
+
+
             className="w-full mt-5"
           >
             <label>Add Review</label>
@@ -114,7 +120,7 @@ const FoodDetailpage = () => {
             icon={faX}
           />
         </div>
-        </div>
+      </div>
     </div>
   )
 }

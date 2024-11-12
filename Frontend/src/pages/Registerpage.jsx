@@ -37,11 +37,12 @@ const user=await registerUserWithEmailAndPassword(email,password)
 
     <div className=' w-full md:flex gap-5 h-[100vh]  justify-center items-center '>
 
-<div className="md:w-1/2 h-full flex flex-col justify-center items-center">
+<div className="w-full h-full flex flex-col justify-center items-center">
     <ToastContainer/>
     
-    <h1 className='heading'>Create a  new account !</h1>
-    <p className="subheading ">create a new account and get registerd on Ink & Pages </p>
+    <h1 className="text-3xl font-semibold mb-7 text-[var(--primary-color)]">The Nook Cafe</h1>
+      <h1 className="text-4xl font-semibold mb-1">User registration</h1>
+    <p className="subheading ">Create new account </p>
     
     <form onSubmit={handleSignup} className="flex flex-col gap-4 md:w-[40vw] w-[500px] max-w-[80vw] my-5">
       <div className='flex gap-2 justify-between'>
@@ -55,10 +56,7 @@ const user=await registerUserWithEmailAndPassword(email,password)
     <p>You already have an account ? <NavLink to={'/login'} className="cursor-pointer hover:underline text-[var(--primary-color)] font-semibold">Login</NavLink></p>
 
        </div>
-       <div className="md:w-1/2 flex items-center justify-center bg-[var(--primary-color)] h-full .login-visual-part">
-       <h1 className="text-5xl font-bold text-white">Ink & Pages</h1>
-
-</div>
+     
     </div>
     
   )

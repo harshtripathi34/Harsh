@@ -9,10 +9,10 @@
   --primary-color: #FC8A06;
 
   --secondary-color: #fc890641;
-  --light-bg-color: rgba(120, 150, 176, 0.1);
-  --logo-color: #266296;
-  --btn-hover-color: #266296b0;
-  --hero-section-bg-color:rgba(38, 98, 150, 0.2);
+ 
+  
+  --btn-hover-color:#cb6f05;
+  
 }
 
 *,p{
@@ -25,4 +25,12 @@
     -webkit-line-clamp: 2; /* Number of lines to display */
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.hide-on-sm{
+
+}
+@media (max-width:680px) {
+  .hide-on-sm{
+    display: none;
+  }
 }

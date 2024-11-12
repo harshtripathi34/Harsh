@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import FoodCategory from './FoodCategory'
-import foodImage from '../assets/images/food.jpg'
-import burgerImage from '../assets/images/burger2.jpg'
-import shushiImage from '../assets/images/shushi2.jpg'
-import pizzaImage from '../assets/images/pizza3.jpg'
-import noodelImage from '../assets/images/noodles.jpg'
-import sandwichImage from '../assets/images/sandwich.jpg'
-import pastaImage from '../assets/images/pasta2.jpg'
+const foodImage = 'https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=600'
+const burgerImage = 'https://images.pexels.com/photos/2702674/pexels-photo-2702674.jpeg?auto=compress&cs=tinysrgb&w=600'
+const shushiImage = 'https://cdn.pixabay.com/photo/2019/01/25/15/46/riceroll-3954777_640.jpg'
+const pizzaImage = 'https://images.pexels.com/photos/3915857/pexels-photo-3915857.jpeg?auto=compress&cs=tinysrgb&w=600'
+const noodelImage = 'https://images.pexels.com/photos/3209101/pexels-photo-3209101.jpeg?auto=compress&cs=tinysrgb&w=600'
+const sandwichImage = 'https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&w=600'
+const pastaImage = 'https://images.pexels.com/photos/5419336/pexels-photo-5419336.jpeg?auto=compress&cs=tinysrgb&w=600'
+const coffeeImage='https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600'
 import { FoodContext } from '../contexts/FoodContext'
 
 
@@ -16,6 +17,10 @@ const FoodCategoryBar = () => {
         {
             category: 'All',
             image: foodImage
+        },
+        {
+            category: 'Coffee',
+            image: coffeeImage
         },
         {
             category: 'Burgers',

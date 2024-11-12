@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ProductExtraIamge } from "../components/ProductExtraIamge";
 
-import { ProductSize } from "../components/ProductSize";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CustomCheckbox from "../components/CustomCheckBox";
+
 import { Loader } from "../components/Loader/Loader";
 export const AddItemsView = () => {
   const SERVER_URL = import.meta.env.VITE_SERVER_URL;
@@ -152,6 +152,7 @@ export const AddItemsView = () => {
               <option>Burgers</option>
               <option>Pizza</option>
               <option>Pasta</option>
+              <option>Coffee</option>
               <option>Sandwiches</option>
               <option>Sushi</option>
               <option>Tacos</option>

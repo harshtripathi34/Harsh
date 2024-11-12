@@ -98,7 +98,7 @@ const SERVER_URL=import.meta.env.VITE_SERVER_URL;
       <h1 className="text-xl font-bold">Shiping detail</h1>
       <div className="md:flex  gap-4 justify-between w-full max-w-6xl">
         {/* Shipping Address */}
-        <div className="bg-white p-6 rounded-lg shadow-md w-full border border-[var(--primary-color)]">
+        <div className="bg-white p-6 rounded-lg w-full">
           <h2 className="text-lg font-semibold mb-4">Customer information</h2>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -200,7 +200,7 @@ const SERVER_URL=import.meta.env.VITE_SERVER_URL;
        
 
         {/* Payment Method */}
-        <div className="bg-white p-6 rounded-lg md:w-[500px] w-full shadow-md border  border-[var(--primary-color)]">
+        <div className="bg-white p-6 rounded-lg md:w-[500px] w-full ">
           <h2 className="text-lg font-semibold mb-4">Select payment method</h2>
           <div className="flex gap-4 mb-4">
             <button

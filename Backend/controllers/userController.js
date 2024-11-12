@@ -16,3 +16,4 @@ exports.registerUser = async (req, res) => {
     return res.json("Server error");
   }
 };
+

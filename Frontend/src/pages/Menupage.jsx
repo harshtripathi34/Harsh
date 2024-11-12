@@ -3,7 +3,7 @@ import foodImage from '../assets/images/food.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBowlFood, faList } from '@fortawesome/free-solid-svg-icons'
 import FoodCategoryBar from '../components/FoodCategoryBar'
-import { foodData } from '../assets/foodData'
+
 import FoodCard from '../components/FoodCard'
 import { FoodContext } from '../contexts/FoodContext'
 const Menupage = () => {
@@ -13,18 +13,18 @@ const Menupage = () => {
     window.scrollTo(0,0)
   },[])
   return (
-    <div className='w-full'>
+    <div className='w-full mb-[50vh]'>
       {/**menu page header banner. */}
-      <div className='h-[250px] rounded-xl text-center flex  items-center justify-center bg-[var(--secondary-color)] py-6'>
-        <div className='w-[60%] h-full flex flex-col justify-end items-start  gap-4 text-start'>
-          <h1 className='text-4xl font-bold text-[var(--primary-color)] '>#Menu</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet ex scelerisque orci pharetra placerat nec id ante. Quisque at lacinia odio. Sed eu risus porttitor nisi vulputate </p>
-          <div className='flex gap-2 items-start'>
-            <div className='text-black px-4 py-2 border bg-white rounded-lg shadow-lg flex gap-1 items-center justify-center'>
+      <div className='sm:h-[250px] h-[200px] rounded-xl text-center flex  items-center justify-center bg-[var(--secondary-color)] py-6 px-2 sm:gap-4 gap-1'>
+        <div className='w-[70%] h-full flex flex-col justify-end items-start  md:gap-4 gap-2 text-start'>
+          <h1 className='sm:text-4xl text-3xl font-bold text-[var(--primary-color)] '>#Menu</h1>
+          <p className='md:text-base text-sm hide-on-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet ex scelerisque orci pharetra placerat nec id ante. Quisque at lacinia odio. Sed eu risus porttitor nisi vulputate </p>
+          <div className='md:flex gap-2 items-start '>
+            <div className='text-black sm:text-base text-xs sm:px-4 px-1 md:mb-0 mb-1 py-2 border bg-white rounded-lg shadow-lg flex gap-1 items-center justify-center'>
               <FontAwesomeIcon className='text-green-600' icon={faBowlFood} />
               Get tasty foods
             </div>
-            <div className='text-black px-4 py-2 border bg-white rounded-lg shadow-lg flex gap-1 items-center justify-center'>
+            <div className='text-black sm:text-base text-xs sm:px-4 md:mb-0 mb-1 py-2 border bg-white rounded-lg shadow-lg flex gap-1 items-center justify-center px-1'>
               <FontAwesomeIcon className='text-green-600' icon={faList} />
               Browse over large menu
             </div>

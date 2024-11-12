@@ -1,15 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import StarRating from './StarRating'
-import { exclusiveOffers } from '../assets/exclusiveOffers';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
-import ShoppingBag from '@mui/icons-material/ShoppingBag'
-import PlustIcon from '@mui/icons-material/Add'
-import { getAverageRating } from '../utils/getAverageRating';
-import { FoodContext } from '../contexts/FoodContext';
-import { useNavigate } from 'react-router-dom';
+
 import { formatDate } from '../utils/formatDate'; '../utils/formatDate'
-import CartFoodCard from '../components/CartFoodCard'
+
 import SubOrderCard from './SubOrderCard';
 const OrderCard = ({ orderDetail }) => {
   const orderedItems= orderDetail?.products;

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { Hero } from '../components/Hero'
-import FoodCategoryBar from '../components/FoodCategoryBar'
+
 import OfferedServicesBar from '../components/OfferedServicesBar'
-import ExclusiveOffers from '../components/ExclusiveOffers'
+
 import { ExclusiveOffersBar } from '../components/ExclusiveOffersBar'
-import { foodData } from '../assets/foodData'
+
 import FoodCard from '../components/FoodCard'
 import { customerFeedbackData } from '../assets/customerFeedbackData'
 import FeedbackCard from '../components/FeedbackCard'
@@ -59,7 +59,7 @@ const Homepage = () => {
             }
 
             <section className='w-full flex flex-col gap-5 mt-28'>
-                <h1 className='text-3xl  text-start '>Our best seller </h1>
+                <h1 className='text-3xl  text-start '>New Dishes</h1>
                 <div className='w-full flex  gap-5 flex-wrap'>
                     {
                         products.map((food) => <FoodCard food={food} />)

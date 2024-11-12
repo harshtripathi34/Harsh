@@ -3,7 +3,7 @@ import App from '../App'
 import { AddItemsView } from '../views/AddItemsView'
 import { OrdersView } from '../views/OrdersView'
 import { ListedProductsView } from '../views/ListedProductsView'
-import {SignupPage} from '../pages/SignupPage/SignupPage'
+
 import { LoginPage } from '../pages/LoginPage/LoginPage'
 
 export const routes=createBrowserRouter([
@@ -29,8 +29,5 @@ export const routes=createBrowserRouter([
         path:'/login',
         element:<LoginPage/>
     },
-    {
-        path:'/signup',
-        element:<SignupPage/>
-    }
+  
 ])
