@@ -19,7 +19,7 @@ const [cartProducts, setCartProducts] = useState([]);
 const {logedInUser} = useContext(FirebaseAuthContext);
 const latesCollectionRef = useRef();
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
-console.log("logedins user form foodContext:",logedInUser)
+
 const scrollToView = (sectionId) => {
   if (sectionId === "latestcollections") {
     latesCollectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -30,7 +30,7 @@ const fetchProducts = async () => {
   try {
     fetch(`${SERVER_URL}/products`).then(async (response) => {
       const responseData = await response.json();
-console.log("fetchode foods are :",responseData.products)
+
       setProducts(responseData.products);
     });
   } catch (error) {
@@ -45,7 +45,7 @@ const fetchCartProducts = async () => {
         const responseData = await response.json();
 
         setCartProducts(responseData.cart);
-        console.log("cart products;",responseData.cart.reverse())
+       
       }
     })
     .catch((err) => {
@@ -71,7 +71,7 @@ const addProductToUserCart = (product,  quantityToBuy) => {
     .then(async(response) => {
       if(response.ok){
         const responseDAta=await response.json()
-        console.log("respone adding to cart:",responseDAta)
+        
         toast.success("Successfully added to Cart !");
         fetchCartProducts();
       }

@@ -10,7 +10,7 @@ export const OrdersView = () => {
   
 const {orders}=useContext(AdminContext);
 
-console.log('orders:',orders)
+
   return (
     <div className="py-6 px-10 text-start flex flex-1 flex-col gap-4">
 

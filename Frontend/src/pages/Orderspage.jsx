@@ -18,7 +18,7 @@ export const Orderspage = () => {
       ).then(async (response) => {
         if (response.ok) {
           const responseData = await response.json();
-          console.log("orders responseData:", responseData);
+         
           setOrders(responseData.orders);
         } else {
           toast.error("Error fetching orders");

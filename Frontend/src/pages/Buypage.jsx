@@ -35,7 +35,7 @@ const SERVER_URL=import.meta.env.VITE_SERVER_URL;
   // Handle form submission (validation and sending data to backend)
   const handlePlaceOrder = () => {
     // Check if all fields are filled
-    console.log("formdat :", formData);
+   
     const {
       name,
       address1,
@@ -76,7 +76,7 @@ const SERVER_URL=import.meta.env.VITE_SERVER_URL;
           .then(async (response) => {
             if (response.ok) {
               const responseData = await response.json();
-              console.log("response data after placing order:", responseData);
+              
               toast.success("Order placed successfully");
             } else {
               toast.error("Error placing order");

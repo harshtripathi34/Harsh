@@ -77,7 +77,6 @@ export const AddItemsView = () => {
     formData.append("category", category);
 
 
-    console.log("formData:", formData);
 
 
 
