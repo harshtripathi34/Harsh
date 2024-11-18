@@ -48,16 +48,16 @@ cartProducts?.length > 0 ?
                                 </div>
                                 <div className='flex justify-between'>
                                     <p>Toatal:</p>
-                                    <p>${totalPrice}</p>
+                                    <p>₹{totalPrice}</p>
                                 </div>
                                 <div className='flex justify-between'>
                                     <p>Shipping fees:</p>
-                                    <p>${shippingFees}</p>
+                                    <p>₹{shippingFees}</p>
                                 </div>
                                 <div className='w-full h-[1px] my-3 bg-black'></div>
                                 <div className='flex justify-between'>
                                     <p>Sub total:</p>
-                                    <p>${shippingFees + totalPrice}</p>
+                                    <p>₹{shippingFees + totalPrice}</p>
                                 </div>
                                 <button onClick={()=>navigate('/buy',{state:{products:cartProducts,totalPrice}})} className='bg-[var(--primary-color)] rounded-xl w-full h-[40px] my-3'>Proceed to checkout</button>
                             </div>

@@ -33,7 +33,7 @@ const FoodDetailpage = () => {
           <h1 className='text-3xl font-semibold'>{food?.name}</h1>
           <p>{food?.category}</p>
           <StarRating rating={getAverageRating(food?.reviews)} />
-          <p className='text-lg font-semibold'>${food?.price}</p>
+          <p className='text-lg font-semibold'>₹{food?.price}</p>
 
           <div className={`h-[40px]  bg-white rounded-full flex gap-1 py-1 px-1   shadow-lg max-w-[100px] justify-center`}>
             <button onClick={() => setQuantity(prev => prev + 1)} className='h-full aspect-square rounded-full bg-green-300  flex items-center justify-center'>
@@ -53,7 +53,7 @@ const FoodDetailpage = () => {
             <button onClick={() => {
               logedInUser ? addProductToUserCart(food, quantity) : toast.error("User not logined !")
             }} className='h-[40px] w-[150px] bg-[var(--primary-color)] rounded-xl text-black '>Add to cart</button>
-            {/* <button onClick={()=>navigate('/buy',{state:{products:[],totalPrice}})} className='h-[40px] w-[150px] border-2 border-[var(--primary-color)] hover:bg-[var(--secondary-color)] rounded-xl transition duration-300 ease-in-out text-black '>Order now</button> */}
+         
           </div>
         </div>
       </div>

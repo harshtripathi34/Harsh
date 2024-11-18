@@ -39,8 +39,8 @@ const CartFoodCard = ({ foodDetail }) => {
           <div className='flex gap-2  itmes-start'>
             <StarRating rating={getAverageRating(food?.reviews)} />
             <div className='flex  gap-1 items-center'>
-              <p className='text-lg'>${discountedPrice ? discountedPrice : food?.price}</p>
-              {discountedPrice ? <del className='text-black strikethrough-'>${food?.price}</del> : ''}
+              <p className='text-lg'>₹{discountedPrice ? discountedPrice : food?.price}</p>
+              {discountedPrice ? <del className='text-black strikethrough-'>₹{food?.price}</del> : ''}
             </div>
 
           </div>

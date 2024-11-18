@@ -17,7 +17,7 @@ const {deleteAProduct}=useContext(AdminContext)
           <h1 className='text-lg font-semibold'>{food?.name}</h1>
 
 
-          <div className='flex gap-1'><p>Product Id:</p><p className='font-semibold'>${food?.price}</p></div>
+          <div className='flex gap-1'><p>Product Id:</p><p className='font-semibold'>₹{food?.price}</p></div>
 
 
         </div>

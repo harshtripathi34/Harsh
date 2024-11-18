@@ -63,8 +63,8 @@ const FoodCard = ({ food }) => {
 
       <div className='w-full flex justify-between items-center'>
         <div className='flex gap-1 items-center'>
-          <p className='text-lg'>${discountedPrice ? discountedPrice : food?.price}</p>
-          {discountedPrice ? <del className='text-black strikethrough-'>${food?.price}</del> : ''}
+          <p className='text-lg'>₹{discountedPrice ? discountedPrice : food?.price}</p>
+          {discountedPrice ? <del className='text-black strikethrough-'>₹{food?.price}</del> : ''}
         </div>
         <StarRating rating={getAverageRating(food?.reviews)} />
       </div>
