@@ -161,6 +161,28 @@ const addProductRating = (product_id, comment, rating) => {
 };
 
 
+const handleFeedbackSubmission = (formData) => {
+
+  fetch(`${SERVER_URL}/feedback`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      'name': formData?.name,
+      'email': formData?.email,
+      'phone': formData?.phone,
+      'message': formData?.message
+    })
+  }).then((response) => {
+    if (response.ok) {
+      toast.success("Thanks for your valuable feedback")
+    } else {
+      toast.error("Unexpected error ")
+    }
+  }).catch((err) => toast.error("Unexpected error"))
+}
+
 useEffect(() => {
   fetchProducts();
 
@@ -186,6 +208,7 @@ useEffect(() => {
         latesCollectionRef,
         scrollToView,
         addProductRating,
+        handleFeedbackSubmission
 
     }}>
         {children}

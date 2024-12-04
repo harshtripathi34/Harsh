@@ -21,6 +21,7 @@ const {
   updateOrderStatus,
 } = require("./controllers/orderController");
 const uploadProductImages = require("./middlewares/uploadProductImagesMiddleware");
+const { handleFeedback } = require("./controllers/feedbackController");
 dotenv.config();
 //creating express app
 
@@ -67,5 +68,5 @@ app.post("/updateOrderStatus", updateOrderStatus);
 app.delete("/deleteAProduct", delteAProduct);
 //seting review and rating for a product
 app.post("/productRatingAndReview", setProductRatingAndReview);
-
+app.post('/feedback',handleFeedback)
 app.listen(PORT, () => console.log("Server started at :", PORT));

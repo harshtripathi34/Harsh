@@ -1,7 +1,40 @@
 // ContactUs.js
-import React from "react";
+import React, { useContext, useState } from "react";
+import { FoodContext } from "../contexts/FoodContext";
+import { toast } from "react-toastify";
 
 const ContactUs = () => {
+
+
+  const { handleFeedbackSubmission } = useContext(FoodContext)
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  
+  
+  const handleChange = (e) => {
+  
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" }); // Clear error when input changes
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("formdata:", formData)
+    if (formData?.name && formData?.email && formData?.message && formData?.phone) {
+      handleFeedbackSubmission(formData)
+    }
+    else {
+      toast.error("Fill all fields")
+    }
+  
+  
+  };
+
+
   return (
     <div className="flex flex-col items-center bg-gray-100 min-h-screen py-10 px-4">
       <h1 className="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
@@ -10,7 +43,7 @@ const ContactUs = () => {
       </p>
 
       <div className="bg-white shadow-md rounded-lg w-full max-w-md p-6">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4 text-start">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
               Name
@@ -18,6 +51,8 @@ const ContactUs = () => {
             <input
               type="text"
               id="name"
+              name="name"
+              onChange={handleChange}
               placeholder="Your Name"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:[var(--primary-color)]"
             />
@@ -29,7 +64,22 @@ const ContactUs = () => {
             <input
               type="email"
               id="email"
+              name="email"
+              onChange={handleChange}
               placeholder="Your Email"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:[var(--primary-color)]"
+            />
+          </div>
+          <div className="mb-4 text-start">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+              Phone
+            </label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              onChange={handleChange}
+              placeholder="Your phone"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:[var(--primary-color)]"
             />
           </div>
@@ -41,6 +91,8 @@ const ContactUs = () => {
               id="message"
               placeholder="Your Message"
               rows="4"
+              name="message"
+              onChange={handleChange}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:[var(--primary-color)]"
             ></textarea>
           </div>
