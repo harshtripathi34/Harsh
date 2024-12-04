@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 8000;
 const DB_CONNECTION_STRING = process.env.MONGO_DB_CONNECTION_STRING;
 //connecting server to DB
 
-mongoose.connect(`${DB_CONNECTION_STRING}`);
+mongoose.connect(`${DB_CONNECTION_STRING}`).then(()=>console.log("DB connected successfully")).catch((error)=>console.log("DB connections error:",error))
 
 app.post(
   "/upload",

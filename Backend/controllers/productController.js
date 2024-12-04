@@ -48,10 +48,10 @@ exports.uploadProduct = async (req, res) => {
           thumbnail: thumbnailCloudinaryUrl,
         })
           .then((result) => {
-            return res.json("Successfully product listed");
+            return res.json({"success":"Successfully product listed"});
           })
           .catch((error) => {
-            return res.json("mongoDB error:", error);
+            return res.json({"mongoDB error:": error});
           });
       }
     } catch (error) {

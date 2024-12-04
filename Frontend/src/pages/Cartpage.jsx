@@ -7,6 +7,7 @@ const Cartpage = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [shippingFees, setShippingFees] = useState(15);
     const { cartProducts } = useContext(FoodContext);
+    console.log("cartproducts:",cartProducts)
     const navigate=useNavigate();
     useEffect(() => {
         const tPrice = cartProducts?.reduce((acc, item) => {
