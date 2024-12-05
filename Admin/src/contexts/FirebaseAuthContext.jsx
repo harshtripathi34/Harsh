@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  sendPasswordResetEmail
 } from "firebase/auth";
 
 import { toast } from "react-toastify";
@@ -66,6 +67,23 @@ const FirebaseAuthContextProvider = ({ children }) => {
       .catch(() => toast.error("Error logOuting user"));
   };
 
+
+
+  const resetPassword=async(email)=>{
+    
+    const result=await sendPasswordResetEmail(firebaseAuth,email).then((user)=>{
+    
+     
+        toast.success("password reset email sent to your inbox")
+       
+     
+    }).catch((err)=>{
+      toast.error("Unexpected error");
+      console.log("error reseting password",err)
+    })
+  }
+
+
   useEffect(() => {
     const logedInUser = onAuthStateChanged(firebaseAuth, (user) => {
      
@@ -80,6 +98,7 @@ const FirebaseAuthContextProvider = ({ children }) => {
         loginUserWithEmailAndPassword,
         logedInUser,
         logOut,
+        resetPassword
       }}
     >
       {children}

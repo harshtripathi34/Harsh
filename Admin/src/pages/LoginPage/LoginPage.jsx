@@ -3,12 +3,12 @@ import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 
 import { FirebaseAuthContext } from "../../contexts/FirebaseAuthContext";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const { loginUserWithEmailAndPassword, logedInUser } =
+  const { loginUserWithEmailAndPassword, logedInUser,resetPassword } =
     useContext(FirebaseAuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +19,14 @@ export const LoginPage = () => {
     const user = await loginUserWithEmailAndPassword(email, password);
 
   };
+
+  const handleResetPassword=()=>{
+    if(email){
+      resetPassword(email);
+    }else{
+      toast.error("Enter email")
+    }
+  }
   useEffect(()=>{
     if(logedInUser){
       navigate('/')
@@ -38,6 +46,7 @@ export const LoginPage = () => {
       <form onSubmit={handleLogin} className="flex flex-col gap-4 w-[500px] max-w-[80vw] my-5">
         <input required onChange={(e) => setEmail(e.target.value)} className="px-4 py-3 border-2  rounded-md " name="email" type="email" placeholder="Enter your email address" />
         <input required onChange={(e) => setPassword(e.target.value)} className="px-4 py-3 border-2 rounded-md " name="password" type="password" placeholder="Enter your password" />
+        <p onClick={handleResetPassword} className="text-end text-sm cursor-pointer hover:text-blue-800">Forgot password?</p>
         <button className="px-4 py-3 border-2 rounded-md bg-[var(--primary-color)] text-white hover:bg-[var(--btn-hover-color)] transition-all" type="submit">Log in</button>
       </form>
 
