@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {FirebaseAuthContext} from '../contexts/FirebaseAuthContext'
 export const Loginpage = () => {
   const navigate = useNavigate();
-  const { loginUserWithEmailAndPassword,logedInUser } = useContext(FirebaseAuthContext);
+  const { loginUserWithEmailAndPassword,logedInUser,resetPassword } = useContext(FirebaseAuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const successNotify = () => toast.success("Login successful");
@@ -33,6 +33,14 @@ export const Loginpage = () => {
       navigate('/')
     }
   },[logedInUser])
+
+  const handleResetPassword=()=>{
+    if(email){
+      resetPassword(email);
+    }else{
+      toast.error("Enter email")
+    }
+  }
   return (
   <div className="w-full md:flex gap-5 h-[100vh]  justify-center items-center">
 
@@ -48,6 +56,7 @@ export const Loginpage = () => {
     <form onSubmit={handleLogin} className="flex flex-col gap-4  md:w-[40vw] w-[500px] max-w-[80vw] my-5">
     <input required onChange={(e)=>setEmail(e.target.value)} className="px-4 py-3 border-2  rounded-md " name="email" type="email" placeholder="Email address"/>
     <input required onChange={(e)=>setPassword(e.target.value)} className="px-4 py-3 border-2 rounded-md " name="password" type="password" placeholder="Password" />
+    <p onClick={handleResetPassword} className="text-end text-sm cursor-pointer hover:text-blue-800">Forgot password?</p>
     <button className="px-4 py-3 border-2 rounded-md bg-[var(--primary-color)] text-white hover:bg-[var(--btn-hover-color)] transition-all"  type="submit">Sign in</button>
     </form>
     <p>Don't have an account ? <NavLink to={'/register'} className="cursor-pointer hover:underline text-[var(--primary-color)] font-semibold">Register now</NavLink></p>

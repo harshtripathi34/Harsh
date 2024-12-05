@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { addUserToDB } from "../utils/addUserToDB";
 import { toast } from "react-toastify";
@@ -64,6 +65,32 @@ addUserToDB(uid);
       .catch(() => toast.error("Unexpected error"));
   };
 
+
+  const resetPassword=async(email)=>{
+    
+    const result=await sendPasswordResetEmail(firebaseAuth,email).then((user)=>{
+    
+        toast.success("password reset email sent to your inbox")
+     
+    }).catch((err)=>{
+      toast.error("Unexpected error");
+      console.log("error reseting password",err)
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     const logedInUser = onAuthStateChanged(firebaseAuth, (user) => {
       setLogedInUser(user);
@@ -77,6 +104,7 @@ addUserToDB(uid);
         loginUserWithEmailAndPassword,
         logedInUser,
         logOut,
+        resetPassword
       }}
     >
       {children}
