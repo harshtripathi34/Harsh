@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { formatDate } from  '../utils/formatDate'
 
 import SubOrderCard from './SubOrderCard';
-import { AdminContext } from '../contexts/adminContext';
+import { AdminContext } from '../contexts/AdminContext';
 const OrderCard = ({ orderDetail }) => {
   const orderedItems= orderDetail?.products;
   const [orderStatus,setOrderStatus]=useState(orderDetail?.status);

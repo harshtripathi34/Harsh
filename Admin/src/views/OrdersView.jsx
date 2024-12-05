@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 
 import { useContext } from 'react'
-import { AdminContext } from '../contexts/adminContext'
+import { AdminContext } from '../contexts/AdminContext'
 
 import OrderCard from '../components/OrderCard'
 
