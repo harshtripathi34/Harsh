@@ -20,10 +20,14 @@ export const Registerpage = () => {
 
   const handleSignup=async(e)=>{
 
-
-    e.preventDefault();
+if(firstName&&lastName&&email&&password){
+  e.preventDefault();
   
-const user=await registerUserWithEmailAndPassword(email,password)
+  const user=await registerUserWithEmailAndPassword(email,password,firstName+" "+lastName)
+}else{
+  toast.error("Fill all fields")
+}
+
 
 
   }
@@ -32,7 +36,7 @@ const user=await registerUserWithEmailAndPassword(email,password)
     if(logedInUser){
       navigate('/')
     }
-  },[])
+  },[logedInUser])
   return (
 
     <div className=' w-full md:flex gap-5 h-[100vh]  justify-center items-center '>

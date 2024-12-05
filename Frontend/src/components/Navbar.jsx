@@ -64,7 +64,7 @@ const Navbar = () => {
             logedInUser ?
               <div className="flex flex-col items-center justify-center px-4 ">
                 <h1 className="text-xl font-semibold mt-2 text-white">
-                  {logedInUser.displayName ? logedInUser.displayName : ""}
+                  {logedInUser.displayName ? logedInUser.displayName : "User"}
                 </h1>
                 <h1 className="text-base text-white text-wrap break-words text-center">
                   {logedInUser.email}

@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { addUserToDB } from "../utils/addUserToDB";
 import { toast } from "react-toastify";
@@ -17,7 +18,7 @@ const FirebaseAuthContext = createContext();
 const FirebaseAuthContextProvider = ({ children }) => {
   const [logedInUser, setLogedInUser] = useState(null);
   const SERVER_URL = import.meta.env.VITE_SERVER_URL;
-  const registerUserWithEmailAndPassword = async (email, password) => {
+  const registerUserWithEmailAndPassword = async (email, password,name) => {
     try {
       const user = await createUserWithEmailAndPassword(
         firebaseAuth,
@@ -27,9 +28,11 @@ const FirebaseAuthContextProvider = ({ children }) => {
 
       if (user) {
         const { uid } = user.user;
+const currentUserIs=firebaseAuth.currentUser;
+const updatedUser=updateProfile(currentUserIs,{displayName:name})
 
-        toast.success("User successfully Registered  !");
-        addUserToDB(uid);
+toast.success("User Registered successfully");
+addUserToDB(uid);
       }
     } catch (error) {
       toast.error("Error registering user !");

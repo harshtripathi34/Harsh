@@ -285,7 +285,7 @@ const SERVER_URL=import.meta.env.VITE_SERVER_URL;
             </form>
           )}
 
-          <button onClick={()=>handlePlaceOrder()} className="w-full py-2 bg-[var(--primary-color)] text-black rounded-xl px-4 mt-5">Save & continuew</button>
+          <button onClick={()=>handlePlaceOrder()} className="w-full py-2 bg-[var(--primary-color)] text-black rounded-xl px-4 mt-5">Save & continue</button>
         </div>
       </div>
       {/* <div className="bg-white p-6 rounded-lg border border-[var(--primary-color)] shadow-md w-full">

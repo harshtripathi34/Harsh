@@ -12,10 +12,10 @@ const Footer = () => {
         <h1 className='text-3xl font-bold text-[var(--primary-color)]'>The Nook Cafe </h1>
    
             <div className='flex gap-2 flex-1 items-center justify-center '>
+              <p>The nook cafe is destination for your food cravings</p>
+              {/* <p>About</p>
               <p>About</p>
-              <p>About</p>
-              <p>About</p>
-              <p>About</p>
+              <p>About</p> */}
             </div>
             
    
