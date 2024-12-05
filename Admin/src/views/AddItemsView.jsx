@@ -112,7 +112,7 @@ export const AddItemsView = () => {
     <>
       <form
         onSubmit={handleFormSubmit}
-        className="py-6 px-10 text-start flex flex-col gap-4 "
+        className="py-6 px-2 sm:px-10 text-start flex flex-col gap-4 "
       >
         {/* product Thumbnail */}
         <div className="flex flex-col gap-2">

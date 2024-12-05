@@ -12,7 +12,7 @@ const {orders}=useContext(AdminContext);
 
 
   return (
-    <div className="py-6 px-10 text-start flex flex-1 flex-col gap-4">
+    <div className="py-6 px-2 sm:px-10 text-start flex flex-1 flex-col gap-4">
 
 
 {

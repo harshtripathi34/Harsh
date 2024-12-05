@@ -9,7 +9,7 @@ export const ListedProductsView = () => {
   const { listedProducts } = useContext(AdminContext);
 console.log("listedproducts",listedProducts)
   return (
-    <div className="py-6 px-10 text-start flex flex-1 flex-col gap-4">
+    <div className="py-6  px-2 sm:px-10 text-start flex flex-1 flex-col gap-4">
       {listedProducts.length > 0 ? (
         listedProducts.reverse().map((product) => {
           return <ListeditemCard item={product} />;
