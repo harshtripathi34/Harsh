@@ -19,7 +19,7 @@ const ContactUs = () => {
   const handleChange = (e) => {
   
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // Clear error when input changes
+    
   };
   const handleSubmit = (e) => {
     e.preventDefault();
