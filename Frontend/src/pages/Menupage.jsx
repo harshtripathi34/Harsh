@@ -9,6 +9,7 @@ import { FoodContext } from '../contexts/FoodContext'
 const Menupage = () => {
   const {foodFilteredCategory} =useContext(FoodContext)
   const {products}=useContext(FoodContext)
+  console.log("products:",products);
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
@@ -54,7 +55,7 @@ const Menupage = () => {
             products.map((food) => 
             
             {
-              if(food.category==foodFilteredCategory){
+              if(food?.category==foodFilteredCategory){
                 return <FoodCard food={food} />
               }
               else if(foodFilteredCategory=='All'){

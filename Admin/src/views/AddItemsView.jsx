@@ -13,7 +13,7 @@ export const AddItemsView = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
 
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState('');
 
   const [smallDescription, setSmallDescription] = useState("");
   const [fullDescription, setFullDescription] = useState("");
@@ -58,7 +58,7 @@ export const AddItemsView = () => {
       !smallDescription ||
       !fullDescription ||
 
-      !category ||
+      !category || category=='select'||
 
       !thumbnail
     ) {
@@ -143,11 +143,12 @@ export const AddItemsView = () => {
             <select
               name="category"
               required
-              defaultValue={"Men"}
+             value={category}
               onChange={handleCategoryChange}
               className="flex-1 px-2 py-1 border-2 border-[rgba(0,0,0,0.3)] outline-none"
               placeholder="category"
             >
+              <option>select</option>
               <option>Burgers</option>
               <option>Pizza</option>
               <option>Pasta</option>
@@ -162,6 +163,7 @@ export const AddItemsView = () => {
               <option>Wraps</option>
               <option>Dumplings</option>
               <option>Stews</option>
+              <option>Cake</option>
               <option>Stir Fry</option>
               <option>Baked Goods (bread, pastries)</option>
               <option>Ice Cream & Frozen Desserts</option>

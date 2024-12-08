@@ -60,9 +60,9 @@ const FoodCategoryBar = () => {
     return (
         <div className='w-full flex gap-6  justify-between flex-wrap '>
             {
-                categories.map((category, index) => {
+                categories.map((ctg, index) => {
                    
-                    return <FoodCategory category={category.category} image={category.image} />
+                    return <FoodCategory category={ctg.category} image={ctg.image} />
                 })
             }
         </div>
