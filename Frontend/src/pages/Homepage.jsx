@@ -62,7 +62,7 @@ const Homepage = () => {
                 <h1 className='text-3xl  text-start '>New Dishes</h1>
                 <div className='w-full flex  gap-5 flex-wrap'>
                     {
-                        products.map((food) => <FoodCard food={food} />)
+                        products.reverse().slice(0,Math.min(6,products?.length)).map((food) => <FoodCard food={food} />)
                     }
 
 
